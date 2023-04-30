@@ -1,0 +1,13 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="order-block">
+    <h2 class="h-order">Оформление заказа</h2>
+<form action="{% url 'order' product.pk %}" method="post" enctype="multipart/form-data" class="order-f">
+    {% csrf_token %}
+    {{order_form}}
+    <button type="sumbit" class="btn-order">Заказать</button>
+</form>
+</div>
+{% endblock %}

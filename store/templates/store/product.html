@@ -1,0 +1,38 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+      <div class="contactus">
+   <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-8 offset-md-2">
+                  <div class="title">
+                      {% for p in product|slice:":1" %}
+                     <h2>{{p.category}}</h2>
+                      {% endfor %}
+                  </div>
+               </div>
+            </div>
+          </div>
+</div>
+      <div class="ourproduct">
+  <div class="container">
+     <div class="row product_style_3">
+      {% for p in product %}
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+        <div class="full product">
+          <div class="product_img">
+              <div class="center"> <a href="{{p.get_absolute_url}}"><img src="{{p.photo.url}}"/></a>
+            </div>
+          </div>
+          <div class="product_detail text_align_center">
+            <p class="product_price">{{p.price}} руб.</p>
+            <a href="#"><p class="product_descr">{{p.name}}</p></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+      </div>
+{% endblock %}

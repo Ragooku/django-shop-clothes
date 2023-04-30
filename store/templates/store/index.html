@@ -1,0 +1,52 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+            <section class="slider_section">
+                <div class="banner_main">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mapimg">
+                                <div class="text-bg">
+                                    <h1>Добро <br> <strong class="black_bold">пожаловать</strong><br></h1>
+                                    <a href="#cat">Каталог одежды<i class='fa fa-angle-right'></i></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <div class="text-img">
+                                    <figure><img src="{% static 'store/images/oliva1.jpg' %}" /></figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="brand">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="title">
+                                <h2><strong class="black">Каталог одежды</strong></h2>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <a name="cat"></a>
+                <div class="brand-bg">
+                    <div class="row">
+                        {% for c in category %}
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
+                            <div class="brand-box">
+                                <i><img src="{{c.photo.url}}"/></i>
+                                <a href="{{c.get_absolute_url}}"><h3>{{c.name}}</h3></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+{% endblock %}
